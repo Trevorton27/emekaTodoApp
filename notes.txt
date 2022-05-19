@@ -1,0 +1,8 @@
+every time text in inputted, a new form is added below
+
+Desiderata:
+1. text field > inputted text
+2. submit button
+3. delete button to the right of inputted text
+4. when hover over delete button, cross out placed on text 
+5. delete text and have list shift up
