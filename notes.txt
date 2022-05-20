@@ -1,8 +1,46 @@
 every time text in inputted, a new form is added below
 
-Desiderata:
+--Desiderata--
 1. text field > inputted text
 2. submit button
 3. delete button to the right of inputted text
 4. when hover over delete button, cross out placed on text 
 5. delete text and have list shift up
+6. OPTIONAL: text box to filter items
+
+--Relevant Functions--
+x.addEventListerner()
+x.preventDefault //<- how does this work?
+x.createElement()
+x.appendChild()
+x.removeChild()
+
+
+ <form>
+        
+    <input type="text" value="search through Items Here">
+    </form>
+
+    <div class="form">
+        <form id="addform">
+            <input type="text", id="item">
+            <input type="submit" value="Add" id="add-item">
+
+            <ol id="list" class="list">
+                <li class="list-item">Java
+                    <button class="delete">X</button>
+                </li>
+
+
+        </form>
+    </div>
+
+    <title>Emeka's To-Do App</title>
+</head>
+
+    <h1>Emeka's To-Do App</h1>
+
+   
+    <hr>
+<body>
+    

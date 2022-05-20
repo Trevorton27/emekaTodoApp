@@ -5,11 +5,22 @@
 </head>
     <h1>Emeka's To-Do App</h1>
 <body>
-    <form id="forms">
-        <Label ref="text", value="What do you need to get done today?"></Label>
-            <input type="text", id="text">
-            <input type="submit" value="Add">
-    </form>
+    <div class="form">
+        <form id="addform">
+            <input type="text", id="item">
+            <input type="submit" value="Add" id="add-item">
+            <ol id="list" class="list">
+                <li class="list-item" id="list-item">Java
+                    <button class="delete" id="delete">Complete</button>
+                </li>
+
+
+        </form>
+    </div>
+    <div>
+        <p id="test"></p>
+    </div>
 </body>
-  <script src=”app.js”></script>
+  <script src="app.js"></script>
+  <script src="investigations.js"></script>
 </html>
