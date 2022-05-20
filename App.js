@@ -48,7 +48,7 @@ function crossOutItem(){
     let crossOut = insertStrike.strike();
 
 }
-
+//Do this ONLY if you have time to spare and can quickly get it done
 function searchItems(){
 
 }
