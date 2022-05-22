@@ -17,8 +17,8 @@ function addItem(e){
     newListItem.className = 'list-item';
     const todoList = document.getElementById("list");
 
-    const insertStrike = document.getElementById('list')
-    .addEventListener('click', crossOutItem);
+    // const insertStrike = document.getElementById('list')
+    // .addEventListener('click', crossOutItem);
 
     const newRemoveBtn = document.createElement("button");
     newRemoveBtn.className = 'delete';
