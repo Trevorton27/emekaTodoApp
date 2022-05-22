@@ -1,47 +1,51 @@
 //status: when completed button clicked, removes all items in list. no cross out animation
 
-const submitButton = document.getElementById("add-item").addEventListener('click', addItem);
-const insertStrike = document.getElementById('list-item').addEventListener('click', crossOutItem);
+const submitButton = document.getElementById("add-item")
+.addEventListener('click', addItem);
+const insertStrike = document.getElementById('list')
+.addEventListener('click', crossOutItem);
+
+
+
+
 
 function addItem(e){
     e.preventDefault();
     //get value
-    let getItem = document.getElementById("item");
+    const getItem = document.getElementById("item");
     //create new li el
-    let newListItem = document.createElement("li");
+    const newListItem = document.createElement("li");
     //add class
     newListItem.className = 'list-item';
-    console.log(newListItem);
+    
     
     const todoList = document.getElementById("list");
 
     const newRemoveBtn = document.createElement("button");
     newRemoveBtn.className = 'delete';
-
+    newRemoveBtn.textContent = "Remove";
+    newRemoveBtn.addEventListener("click", removeListItem);
     newListItem.textContent = getItem.value;
-    item.appendChild(newRemoveBtn);
-    item.appendChild(newListItem);
-   
+    todoList.appendChild(newListItem);
+    newListItem.appendChild(newRemoveBtn);
 }
 
 function removeListItem(e){
-    if (e.target.className.contains('delete')){
-        console.log(2)
-        if (confirm("Remove Item From List?")){
-            let removeListItem = e.target.parentElement;
-            item.removeChild(removeItem);
-        }
+    e.preventDefault();
+    const item = document.getElementById("item");
+    const todoList = document.getElementById("list");
+    let confirmRemove = confirm("Remove Item From List?");
+    if (confirmRemove == true){
+        e.target.parentElement.remove();
+    }else{
+        console.log(1);
     }
-
-    let itemCompleted = document.getElementById("list-item");
-    itemCompleted.removeChild(item);
-
 
 
 }
-
-function crossOutItem(){
-    let crossOut = insertStrike.strike();
+function crossOutItem(e){
+    e.preventDefault();
+    const strike = document.getElementById("list").style.textDecoration = 'line-through';
 
 }
 //Do this ONLY if you have time to spare and can quickly get it done
