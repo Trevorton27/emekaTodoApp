@@ -3,10 +3,6 @@
 const submitButton = document.getElementById("add-item")
 .addEventListener('click', addItem);
 
-
-
-
-
 function addItem(e){
     e.preventDefault();
     //get value
@@ -17,7 +13,7 @@ function addItem(e){
     newListItem.className = 'list-item';
     const todoList = document.getElementById("list");
 
-    // const insertStrike = document.getElementById('list')
+    // let crossOut = document.getElementById("list")
     // .addEventListener('click', crossOutItem);
 
     const newRemoveBtn = document.createElement("button");
@@ -37,18 +33,15 @@ function removeListItem(e){
     }else{
         console.log("cancelled");
     }
-
-
 }
 function crossOutItem(e){
     e.preventDefault();
     //e.target.parentElement.crossOutItem();
-    e.target.parentElement.style.textDecoration = 'line-through';
-
+    // e.target.parentElement.style.textDecoration = 'line-through';
+    // e.appendChild.style.textDecoration = 'line-through';
 }
 //Do this ONLY if you have time to spare and can quickly get it done
 // function searchItems(){
-
 // }
 function testGitHub(){
     //test
