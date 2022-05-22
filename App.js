@@ -2,8 +2,6 @@
 
 const submitButton = document.getElementById("add-item")
 .addEventListener('click', addItem);
-const insertStrike = document.getElementById('list')
-.addEventListener('click', crossOutItem);
 
 
 
@@ -17,9 +15,10 @@ function addItem(e){
     const newListItem = document.createElement("li");
     //add class
     newListItem.className = 'list-item';
-    
-    
     const todoList = document.getElementById("list");
+
+    const insertStrike = document.getElementById('list')
+    .addEventListener('click', crossOutItem);
 
     const newRemoveBtn = document.createElement("button");
     newRemoveBtn.className = 'delete';
@@ -32,20 +31,19 @@ function addItem(e){
 
 function removeListItem(e){
     e.preventDefault();
-    const item = document.getElementById("item");
-    const todoList = document.getElementById("list");
     let confirmRemove = confirm("Remove Item From List?");
     if (confirmRemove == true){
         e.target.parentElement.remove();
     }else{
-        console.log(1);
+        console.log("cancelled");
     }
 
 
 }
 function crossOutItem(e){
     e.preventDefault();
-    const strike = document.getElementById("list").style.textDecoration = 'line-through';
+    //e.target.parentElement.crossOutItem();
+    e.target.parentElement.style.textDecoration = 'line-through';
 
 }
 //Do this ONLY if you have time to spare and can quickly get it done
