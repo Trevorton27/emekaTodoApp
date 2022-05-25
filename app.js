@@ -3,8 +3,7 @@
 const submitButton = document.getElementById("add-item")
 .addEventListener('click', addItem);
 
-let crossOut = document.getElementById("list")
-    .addEventListener('click', crossOutItem);
+
 
 function addItem(e){
     e.preventDefault();
@@ -16,7 +15,11 @@ function addItem(e){
     newListItem.className = 'u-list';
     const todoList = document.getElementById("list");
 
-    
+
+    let s = document.createElement("input");
+    s.setAttribute("tpye", "checkbox");
+    s.className = "checkboxes"
+    s.addEventListener('click', crossOutItem);
 
 
     const newRemoveBtn = document.createElement("button")
@@ -24,8 +27,13 @@ function addItem(e){
     newRemoveBtn.textContent = "Remove";
     newRemoveBtn.addEventListener("click", removeListItem);
     newListItem.textContent = getItem.value;
+    todoList.appendChild(s);
     todoList.appendChild(newListItem);
     newListItem.appendChild(newRemoveBtn);
+
+   
+
+
 }
 
 function removeListItem(e){
@@ -41,14 +49,14 @@ function removeListItem(e){
 function crossOutItem(e){
     e.preventDefault();
     //e.target.parentElement.crossOutItem();
-     //e.target.parentElement.style.textDecoration = 'line-through';
+    //e.target.parentElement.style.textDecoration = 'line-through';
     //"\u0336" + e.target.parentElement;
     //crossOut.className = "strike-class";
     //strike.innerText = "test";
     //strike.parentElement.style.setProperty("text-decoration", "line-through");
-    
-
-
+    console.log(1)
+    // let crossOut = document.createElement("checkbox");
+    // crossOut.className = 'check';
 
 
 
