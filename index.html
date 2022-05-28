@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title>Emeka's To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
     <h1>Emeka's To-Do App</h1>
-<body>
+<body> 
     <div>
         <p>Type In What You Want and Select <b>"Add"</b>. Mark Your Task As Completed By Clicking On The Task Itself</p>
         <p>Remove An Item By Selecting <b>"Remove"</b></p>
@@ -13,13 +14,10 @@
         <form id="addform" class="u-list">
             <input autofocus type="text", id="item" aria-label="Enter a New Item",
             placeholder="e.g. Buy Bread">
-            <input type="submit" value="Add" id="add-item">
+            <input type="submit" value="Add" id="add-item">     
         </form>
-        <input type="checkbox">
-        <Label>
-        <ul class="list-class" id="list"></ul>
-        
+            <ul class="list-class" id="list"></ul>
     </div>
 </body>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </html>
