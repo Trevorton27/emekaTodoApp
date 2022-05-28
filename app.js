@@ -14,7 +14,7 @@ function addItem(e){
     //create checkboxes
     const strikeOut = document.createElement("input");
     strikeOut.setAttribute("type", "checkbox");
-    strikeOut.className = "boxes";
+    strikeOut.className = "check";
     
     //invoke line-through for each new item
     strikeOut.addEventListener('click', () => crossOutItem(newListItem));
@@ -47,7 +47,7 @@ function removeListItem(e){
 
 function crossOutItem(element){
     //call CSS styling for line-through
-    element.classList.toggle('boxes');
+    element.classList.toggle('check');
 }
 
 //---possible additions--
