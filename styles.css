@@ -1,11 +1,12 @@
 html{
-    text-align: center;
+ text-align: center;   
 }
-
 .check{
     text-decoration: line-through;
+    
 }
 
 li{
     display:block;
+    
 }

@@ -14,7 +14,7 @@ function addItem(e){
     //create checkboxes
     const strikeOut = document.createElement("input");
     strikeOut.setAttribute("type", "checkbox");
-    strikeOut.className = "checkboxes";
+    strikeOut.className = "boxes";
     
     //invoke line-through for each new item
     strikeOut.addEventListener('click', () => crossOutItem(newListItem));
@@ -24,12 +24,13 @@ function addItem(e){
     newRemoveBtn.className = 'delete'
     newRemoveBtn.textContent = "Remove";
     newRemoveBtn.addEventListener("click", removeListItem);
-
+    
     //append elements
     newListItem.textContent = getItem.value;
-    todoList.appendChild(strikeOut);
+    newListItem.prepend(strikeOut);
     todoList.appendChild(newListItem);
     newListItem.appendChild(newRemoveBtn);
+    
 
     
 }
@@ -46,7 +47,7 @@ function removeListItem(e){
 
 function crossOutItem(element){
     //call CSS styling for line-through
-    element.classList.toggle('check');
+    element.classList.toggle('boxes');
 }
 
 //---possible additions--
