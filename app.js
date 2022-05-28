@@ -12,12 +12,12 @@ function addItem(e){
     const todoList = document.getElementById("list");
 
     //create checkboxes
-    const strikeThrough = document.createElement("input");
-    strikeThrough.setAttribute("type", "checkbox");
-    strikeThrough.className = "checkboxes";
+    const strikeOut = document.createElement("input");
+    strikeOut.setAttribute("type", "checkbox");
+    strikeOut.className = "checkboxes";
     
     //invoke line-through for each new item
-    s.addEventListener('click', () => crossOutItem(newListItem));
+    strikeOut.addEventListener('click', () => crossOutItem(newListItem));
 
     //create remove btn for each new item
     const newRemoveBtn = document.createElement("button")
@@ -27,7 +27,7 @@ function addItem(e){
 
     //append elements
     newListItem.textContent = getItem.value;
-    todoList.appendChild(s);
+    todoList.appendChild(strikeOut);
     todoList.appendChild(newListItem);
     newListItem.appendChild(newRemoveBtn);
 

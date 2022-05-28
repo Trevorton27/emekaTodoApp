@@ -6,10 +6,6 @@ html{
     text-decoration: line-through;
 }
 
-.check{
-    direction: ltr;
-}
-
 li{
     display:block;
 }
