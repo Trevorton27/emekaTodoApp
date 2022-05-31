@@ -9,3 +9,100 @@ li{
     display:block;
     
 }
+
+#list {
+    margin: auto;
+    margin-top: 30px;
+}
+
+.inputContainer {
+    border: 2px solid black;
+    display: flex;
+    justify-content: end;
+    width: max-content;
+    margin: auto;
+  }
+  
+  .inputContainer > #taskBox {
+    flex: 2;
+    font-size: xx-large;
+  }
+  .submitButton {
+    font-size: xx-large;
+    background-color: lightseagreen;
+    font: bold;
+    color: white;
+    padding: 3px;
+  }
+  
+  .listContainer {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bolder;
+   
+  }
+  
+  ul {
+    width: 30%;
+    list-style-type: none;
+    text-align: center;
+  }
+  
+  .todo-item {
+    margin-bottom: 10px;
+    width: 100%;
+  text-align: center;
+    justify-content: space-between;
+    font-size: 27px;
+    padding-left: opx;
+  
+  }
+  
+  #text {
+    margin-left: 16px;
+  }
+  
+  
+  input[type=checkbox]
+  {
+    /* Double-sized Checkboxes */
+    float: left !important;
+    margin-top: 5px;
+    size: 20px;
+    transform: scale(2);
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  
+  
+  body {
+    background-color: lightsteelblue;
+    margin: 5%;
+  }
+  
+  h1 {
+    font-weight: bolder;
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  
+  h2 {
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  
+  .deleteButton {
+    border-radius: 50%;
+    background-color: #df392e;
+    padding: 7px;
+    color: #fff;
+    font-size: 12px;
+    border-color: #df392e;
+    margin-left: 7em;
+    cursor: pointer;
+  }

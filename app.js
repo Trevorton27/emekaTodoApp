@@ -1,60 +1,99 @@
-const submitButton = document.getElementById("add-item")
-.addEventListener('click', addItem);
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-function addItem(e){
+const form = document
+    .getElementById('addform')
+    .addEventListener('submit', addItem);
+
+function addItem(e) {
     e.preventDefault();
-    //get value
-    const getItem = document.getElementById("item");
-    //create new li el
-    const newListItem = document.createElement("li");
-    //add class
-    newListItem.className = 'u-list';
-    const todoList = document.getElementById("list");
 
-    //create checkboxes
-    const strikeOut = document.createElement("input");
-    strikeOut.setAttribute("type", "checkbox");
-    strikeOut.className = "check";
-    
-    //invoke line-through for each new item
-    strikeOut.addEventListener('click', () => crossOutItem(newListItem));
+    const text = document.getElementById('item').value;
 
-    //create remove btn for each new item
-    const newRemoveBtn = document.createElement("button")
-    newRemoveBtn.className = 'delete'
-    newRemoveBtn.textContent = "Remove";
-    newRemoveBtn.addEventListener("click", removeListItem);
-    
-    //append elements
-    newListItem.textContent = getItem.value;
-    newListItem.prepend(strikeOut);
-    todoList.appendChild(newListItem);
-    newListItem.appendChild(newRemoveBtn);
-    
+    if (text.length > 0) {
+        const task = {
+            text,
+            checked: false,
+            id: Date.now()
+        };
 
-    
+        todoList.push(task);
+        console.log('todoList: ', todoList);
+        saveTodoItems(todoList);
+        renderTodo();
+    }
+}
+function saveTodoItems(array) {
+    localStorage.setItem('todoList', JSON.stringify(array));
 }
 
-function removeListItem(e){
-    e.preventDefault();
-    let confirmRemove = confirm("Remove Item From List?");
-    if (confirmRemove == true){
-        e.target.parentElement.remove();
-    }else{
-        console.log("cancelled");
+function renderTodo() {
+    const list = document.getElementById('list');
+    list.innerHTML = '';
+
+    for (let i = 0; i < todoList.length; i++) {
+        let text = todoList[i].text;
+        const checkBox = createCheckBox();
+        const li = createLi(text);
+        li.id = todoList[i].id;
+        if (todoList[i].checked === true) {
+            li.style.textDecoration = 'line-through';
+            checkBox.checked = true;
+        }
+        list.appendChild(li);
+
+        li.appendChild(checkBox);
+
+        checkBox.addEventListener('click', () => {
+            toggleTask(todoList[i].id);
+        });
+
+        const deleteButton = createDeleteButton();
+        li.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', () => {
+            deleteTask(todoList[i].id);
+        });
     }
 }
 
-function crossOutItem(element){
-    //call CSS styling for line-through
-    element.classList.toggle('check');
+function createLi(todo) {
+    const li = document.createElement('li');
+    li.className = 'todo-item';
+    li.textContent = todo;
+    return li;
 }
 
-//---possible additions--
-//clear text field
-//todoList.addEventListener('click', clearTextField);
-// function clearTextField(e){
-//     e.preventDefault();
-//     const textField = document.getElementById("item");
-//     textField.value = "";
-// }
+function createCheckBox() {
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    return checkBox;
+}
+
+function createDeleteButton() {
+    const deleteButton = document.createElement('input');
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.className = 'deleteButton';
+    deleteButton.value = 'X';
+    return deleteButton;
+}
+
+function deleteTask(id) {
+    for (let i = 0; i < todoList.length; i++) {
+        if (todoList[i].id === id && todoList[i].checked === true) {
+            todoList.splice(i, 1);
+        }
+    }
+    saveTodoItems(todoList);
+    renderTodo();
+}
+
+function toggleTask(id) {
+    for (let i = 0; i < todoList.length; i++) {
+        if (todoList[i].id == id) {
+            todoList[i].checked = !todoList[i].checked;
+        }
+    }
+    renderTodo();
+}
+
+renderTodo();
